@@ -1,0 +1,112 @@
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Header</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #333;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+    <style>
+      .logo {
+        color: #fff;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    </style>
+
+    <style>
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+    </style>
+
+    <style>
+      nav ul li {
+        margin: 20px;
+      }
+    </style>
+
+    <style>
+      nav ul li a {
+        color: white;
+        font-size: 16px;
+      }
+
+      nav li:last-child a {
+        /* border: 1px solid red; */
+        /* background-color: blue; */
+        color: yellow;
+        text-transform: uppercase;
+      }
+    </style>
+
+    <!-- for screens under 600px -->
+    <style>
+      @media (max-width: 600px) {
+        header {
+          /* display: flex; */
+          flex-direction: column;
+        }
+
+        nav ul {
+          display: flex;
+          flex-direction: column;
+        }
+        nav ul li {
+          margin-left: 0;
+          margin-bottom: 10px;
+        }
+      }
+    </style>
+
+    <style>
+      .flicker-effect {
+        animation: flicker 1s infinite;
+      }
+
+      @keyframes flicker {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">Logo</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Services</a>
+          </li>
+          <li class="flicker-effect">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+  </body>
+</html>
