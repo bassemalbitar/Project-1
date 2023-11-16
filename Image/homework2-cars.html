@@ -1,0 +1,136 @@
+My Drive
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- session final -->
+    <!-- Task: reset box-sizing, margin, and padding styles on all elements -->
+      
+    <!-- session final -->
+    <!-- Task: give the body of the page a padding of 40 pixels -->
+
+    <!-- session final -->
+    <!-- Task: copy the styles of card elements off the work of previous sessions -->
+    <style>
+        .card{
+            border: 1px color(srgb-linear rgb(204, 201, 201) rgb(72, 104, 72) rgb(25, 25, 119));
+            width: 290px;
+            height: 260px;
+            border-radius: 8px;
+            overflow: outside;
+            position:fixed;
+        }
+        .card--dark{
+            background-color: #f3ebeb;
+            box-shadow: 5px 5px 10px rgba(24, 14, 14, 0.5);
+        }
+
+        .card__header {
+  display: flex; 
+  justify-content: space-between;
+  padding: 8px 16px;
+        }
+
+        .card__image {
+  width: 100%; 
+  height: auto; 
+  pointer-events: none; 
+}
+.card__content {
+  padding: 16px;
+}
+.card__title {
+  font-size: 18px; 
+  font-weight: bold; 
+  margin-bottom: 8px; 
+  position: relative; 
+}
+card__title::after {
+  content: attr(title); 
+  position: absolute; 
+  width: 140px; 
+  opacity: 0; 
+  background-color: #333; 
+  color: #fff; 
+  padding: 8px; 
+  border-radius: 4px; 
+  z-index: 1; 
+}
+.card__title:hover::after {
+  opacity: 1;
+}
+.card__text {
+  font-size: 14px; 
+  color: #666666; 
+  margin-bottom: 16px; 
+}
+.card__price {
+  font-size: 16px; 
+  font-weight: bold; 
+  margin-top: 8px; 
+}
+.card__button {
+  text-decoration: none; 
+  background-color: #1e824c; 
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+  color: #fff; 
+  border: none; 
+  cursor: pointer;
+}
+.card__button:hover {
+  background-color: #1a6c3d;
+}
+cards-grid {
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin: 20px;
+        gap: 20px;
+        justify-content: center;
+        align-content: center;
+      }
+
+    </style>
+
+<div class="card card--dark">
+  </div>
+    
+    
+  </head>
+    <!-- session final -->
+    <!-- Task: add styles for the element with ID 'cards-grid' -->
+    
+    <!-- Hint: set display to grid, with columns template set to auto-fit with minmax 280px -> 1fr -->
+    <!-- Hint: add a gap of 20 pixels between the child elements -->
+    <!-- Hint: use justify-content: center; to center cards horizontally -->
+    <!-- Hint: use align-content: center; to center cards vertically -->
+  </head>
+  <body>
+    <div id="cards-grid">
+        <div class="card">
+            <img src="Photo 1.jpg" alt="Card Image">
+            <div class="card__content">
+              <h2 class="card__title" title="Tooltip Text">Blooming in the Dark</h2>
+              <p class="card__price">$19.99</p>
+              <p class="card__text">Today Everything exists to end in a photograph.</p>
+              <a href="#" class="card__button">Read More</a>
+    </div>
+    
+        cardsGrid.appendChild(card);
+      
+
+    <!-- session final -->
+    <!-- Task: add a script with the logic to populate element corresponding to selector '#cards-grid' with 20 cards -->
+    <!-- Hint: you can use chatGPT if you don't know JavaScript yet
+      - get a reference of the container element '#cards-grid'
+      - run a loop for N times, N being the number of cards in this case, equal to 20
+      - in each iteration create a card, and append it to the container element
+      - a card should have the following structure: <div class="card"> <img /> <div> <h2 title="...">...</h2> <p>$...</p> <p>Description goes here...</p> <a>Read More</a> </div> </div>
+      
+      - remeber to follow BEM convention when giving each element it's class
+    -->
+  </body>
+</html>
