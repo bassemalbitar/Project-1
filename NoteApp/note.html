@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    #noteForm {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    label {
+      margin-bottom: 5px;
+    }
+
+    input, select {
+      margin-bottom: 10px;
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: rgb(78, 72, 54);
+      color: aliceblue;
+    }
+
+    #notesList {
+      margin-top: 20px;
+      max-width: 400px;
+      width: 100%;
+      background-color: #255527;
+      color: #bbb4aa;
+    }
+
+    .note {
+      border: 5px solid #595f53;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+   
+  </style>
+</head>
+<body>
+
+  <h1>Note App</h1>
+
+  <form id="noteForm">
+    <label for="priority">Priority:</label>
+    <select id="priority" name="priority">
+      <option value="high">High</option>
+      <option value="medium">Medium</option>
+      <option value="low">Low</option>
+    </select>
+
+    <label for="category">Category:</label>
+    <input type="text" id="category" name="category" placeholder="Enter category">
+
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" placeholder="Enter note content"></textarea>
+
+    <button type="button" onclick="addNote()">Add Note</button>
+  </form>
+
+  <div id="notesList"></div>
+
+  <script>
+    function addNote() {
+      // Get values from the form
+      var priority = document.getElementById('priority').value;
+      var category = document.getElementById('category').value;
+      var content = document.getElementById('content').value;
+
+      // Create a new note element
+      var noteElement = document.createElement('div');
+      noteElement.className = 'note';
+      noteElement.innerHTML = '<strong>Priority:</strong> ' + priority + '<br><strong>Category:</strong> ' + category + '<br><strong>Content:</strong> ' + content;
+
+      // Append the note to the notes list
+      document.getElementById('notesList').appendChild(noteElement);
+
+      // Clear the form fields
+      document.getElementById('priority').value = 'high';
+      document.getElementById('category').value = '';
+      document.getElementById('content').value = '';
+    }
+
+    var priorityColors = {
+        high: 'red',
+        medium: 'orange',
+        low: 'green'
+      };
+
+      var noteElement = document.createElement('div');
+      noteElement.className = 'note';
+      noteElement.innerHTML = '<strong style="color: ' + priorityColors[priority] + ';">Priority:</strong> ' + priority +
+                              '<br><strong>Category:</strong> ' + category + '<br><strong>Content:</strong> ' + content;
+
+      var noteActions = document.createElement('div');
+      noteActions.className = 'note-actions';
+
+      var deleteButton = document.createElement('button');
+      deleteButton.className = 'delete-button';
+      deleteButton.innerHTML = 'Delete';
+      deleteButton.onclick = function () {
+        deleteNote(noteElement);
+      };
+
+      noteActions.appendChild(deleteButton);
+      noteElement.appendChild(noteActions);
+
+      document.getElementById('notesList').appendChild(noteElement);
+
+      document.getElementById('priority').value = 'high';
+      document.getElementById('category').value = '';
+      document.getElementById('content').value = '';
+    
+
+    function deleteNote(noteElement) {
+      document.getElementById('notesList').removeChild(noteElement);
+    }
+  </script>
+
+</body>
+</html>
