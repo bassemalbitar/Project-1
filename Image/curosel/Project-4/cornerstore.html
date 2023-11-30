@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Corner Store</title>
+  </head>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header, section, footer {
+            padding: 20px;
+            background-color: white;
+            border-bottom: 1px solid #ccc;
+        }
+
+        section {
+            min-height: 400px;
+        }
+
+        footer {
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 10px;
+        }
+        .carousel {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            overflow: hidden;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Navigation buttons */
+        .carousel-prev, .carousel-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #333;
+        }
+
+        .carousel-prev { left: 10px; }
+        .carousel-next { right: 10px; }
+      
+      .left-btn{
+        position: absolute;
+        left: 0;
+        top: 50%;
+      }
+      
+      .right-btn{
+        position: absolute;
+        right: 0;
+        top: 50%;
+      }
+      
+      .btn {
+        padding: 20px;
+        background-color: rgb(148, 148, 148);
+      }
+      .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .product-item {
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .heart-icon {
+            color: rgb(182, 182, 182); /* Red color for the heart */
+            margin-left: 25px;
+            padding-left: 25px;
+        }
+        
+        .about-section {
+            padding: 20px;
+        }
+
+        .about-section h1 {
+            color: #333;
+            font-size: 113px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .about-section p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        #section2 h2 {
+    color: #333; 
+    font-size: 20px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+}
+#section2 {
+            position: relative;
+        }
+        #section3 h1{
+            color: #333; 
+    font-size: 20px; 
+    font-weight: bold; 
+    margin-bottom: 200px; 
+        }
+        #section3 p{
+            padding: 10px 10px;
+            font-size: 15px;
+            opacity: 0.4;
+        }
+
+        #section4 {
+            min-height: 90px; /* Set your desired height */
+            background-color: white; 
+            padding: 20px; /* Add padding if needed */
+            box-sizing: border-box; /* Include padding in total height */
+        }
+
+        #section4 h3{
+            color: #333; 
+    font-size: 15px; 
+    font-weight: bold; 
+    margin-bottom: 17px; 
+        }
+        #section4 p{
+            padding: 10px 10px;
+            font-size: 13px;
+            opacity: 0.4;
+        }
+
+/* Add this style to your existing styles or styles.css file */
+.add-to-cart-btn .section2 {
+  background-color: #4caf50; /
+  color: white; /* White text color */
+  padding: 10px 20px; 
+  border: none; /* Remove border */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  cursor: pointer; 
+}
+
+.add-to-cart-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+    </style>
+  <body>
+      <header>
+        <h1></h1>
+        <nav>
+          <h1></h1>
+          <div>
+              <a href="#shop">Shop</a>
+              <a href="#about">About</a>
+          </div>
+      </nav>
+    </header>
+
+    <section id="section1">
+      <div class="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="image1.jpg" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="image2.jpg" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <a href="#" class="view-product-link">View Product</a>
+                <img src="image2.jpg" alt="Image 2">
+                
+            </div>
+            <!-- Add more images as needed -->
+        </div>
+        <div class="carousel-prev" onclick="prevSlide()">&#10094;</div>
+        <div class="carousel-next" onclick="nextSlide()">&#10095;</div>
+    </div>
+    </section>
+
+    <section id="section2">
+        <h2>Store</h2>
+        <div class="search-icon">
+            <i class="fas fa-search"></i> <!-- Font Awesome search icon -->
+        </div>
+        <div class="sort-buttons">
+            
+        <label for="max-price">Max Price:</label>
+        <input type="number" name="max-price" id="max-price" />
+        <label for="search-term">Search Term:</label>
+        <input type="text" name="search-term" id="search-term" />
+        <span class="sort-asc p-2 bg-gray-200">asc &#x2191;</span>
+        <span class="sort-desc p-2 bg-gray-200">desc &#8595;</span>
+        <div class="product-grid">
+           
+            <!-- Your product items here -->
+        </div>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="product1.jpg" alt="Product 1" class="product-image">
+                <div class="text-overlay">
+                    <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+                    
+                </div>
+        <p>Price: €9.99</p>
+        <button>Add To Card</button>
+            </div>
+            <div class="product-item">
+              <img src="product1.jpg" alt="Product 1" class="product-image">
+              <div class="text-overlay">
+                <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+            </div> 
+              <p>Price: €9.99</p>
+              <button>Add To Card</button>
+          </div>
+          <div class="product-item">
+            <img src="product1.jpg" alt="Product 1" class="product-image">
+            <div class="text-overlay">
+                <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+            </div> 
+        <p>Price: €9.99</p>
+        <button>Add To Card</button>
+        </div>
+        <div class="product-item">
+          <img src="product1.jpg" alt="Product 1" class="product-image">
+          <div class="text-overlay">
+            <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+        </div>  
+        <p>Price: €9.99</p>
+        <button>Add To Card</button>
+      </div>
+      <div class="product-item">
+        <img src="product1.jpg" alt="Product 1" class="product-image">
+        <div class="text-overlay">
+            <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+        </div> 
+        <p>Price: €9.99</p>
+    </div>
+    <div class="product-item">
+      <img src="blonde.jpg" alt="Product 1" class="product-image">
+      <div class="text-overlay">
+        <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+    </div> 
+      <p>Price: €45.99</p> 
+      <button>Add To Card</button>
+  </div>
+  <div class="product-item">
+    <img src="product1.jpg" alt="Product 1" class="product-image">
+    <div class="text-overlay">
+        <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+    </div> 
+    <p>Price: €9.99</p>
+    <button>Add To Card</button>
+</div>
+<div class="product-item">
+  <img src="product1.jpg" alt="Product 1" class="product-image">
+  <div class="text-overlay">
+    <h3>Product Name:<span class="heart-icon"><i class="fas fa-heart"></i></span></h3>
+</div>  
+  <p>Price: €12.99</p>
+  <button>Add To Card</button>
+</div>
+
+
+            <!-- Repeat for other products -->
+            <!-- ... -->
+        </div>
+    </section>
+
+    <section id="section3">
+        <h1>About</h1>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet..</p>
+    </section>
+
+    <section id="section4">
+        <h3>About</h3>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,<br> sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,<br> no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet,<br> consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br> At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+    </section>
+
+  
+    <script>
+      let currentIndex = 0;
+
+      function showSlide(index) {
+          const carouselInner = document.querySelector('.carousel-inner');
+          const slides = document.querySelectorAll('.carousel-item');
+          const totalSlides = slides.length;
+
+          if (index < 0) {
+              currentIndex = totalSlides - 1;
+          } else if (index >= totalSlides) {
+              currentIndex = 0;
+          } else {
+              currentIndex = index;
+          }
+
+          const transformValue = -currentIndex * 100 + '%';
+          carouselInner.style.transform = 'translateX(' + transformValue + ')';
+      }
+
+      function prevSlide() {
+          showSlide(currentIndex - 1);
+      }
+
+      function nextSlide() {
+          showSlide(currentIndex + 1);
+      }
+
+     
+      
+      function sortPriceDesc (arrayOfItems){
+        let sortedArr = arrayOfItems.sort(function (prod1, prod2) {
+          return prod2.price - prod1.price;
+        });
+
+        return sortedArr;
+      }
+      document.querySelector('.sort-asc').addEventListener('click',function(){
+        let sortedArr = sortPriceAsc(products)
+        populateProductsGrid(sortedArr)
+      })
+      document.querySelector('.sort-desc').addEventListener('click', function(){
+        let sortedArr = sortPriceDesc(products)
+        populateProductsGrid(sortedArr)
+      })
+
+      function applyFilters() {
+        const maxPrice = parseFloat(document.getElementById('max-price').value);
+        const searchTerm = document.getElementById('search-term').value.toLowerCase();
+        const productItems = Array.from(document.querySelectorAll('.product-item'));
+
+        // Filter products based on max price and search term
+        const filteredProducts = products.filter(product => {
+            const meetsMaxPrice = isNaN(maxPrice) || product.price <= maxPrice;
+            const meetsSearchTerm = searchTerm === '' || product.name.toLowerCase().includes(searchTerm);
+            return meetsMaxPrice && meetsSearchTerm;
+        });
+
+        populateProductsGrid(filteredProducts);
+    }
+
+    function applyFilters() {
+        const maxPrice = parseFloat(document.getElementById('max-price').value);
+        const searchTerm = document.getElementById('search-term').value.toLowerCase();
+        const productItems = Array.from(document.querySelectorAll('.product-item'));
+
+        // Filter products based on max price and search term
+        const filteredProducts = products.filter(product => {
+            const meetsMaxPrice = isNaN(maxPrice) || product.price <= maxPrice;
+            const meetsSearchTerm = searchTerm === '' || product.name.toLowerCase().includes(searchTerm);
+            return meetsMaxPrice && meetsSearchTerm;
+        });
+
+        populateProductsGrid(filteredProducts);
+    }
+
+    
+  let currentIndex = 0;
+  const products = []; // You need to have your products array defined.
+
+  function showSlide(index) {
+    const carouselInner = document.querySelector('.carousel-inner');
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+
+    const transformValue = -currentIndex * 100 + '%';
+    carouselInner.style.transform = 'translateX(' + transformValue + ')';
+  }
+
+  function prevSlide() {
+    showSlide(currentIndex - 1);
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function sortPriceAsc(arrayOfItems) {
+    let sortedArr = arrayOfItems.sort(function (prod1, prod2) {
+      return prod1.price - prod2.price;
+    });
+
+    return sortedArr;
+  }
+
+  function sortPriceDesc(arrayOfItems) {
+    let sortedArr = arrayOfItems.sort(function (prod1, prod2) {
+      return prod2.price - prod1.price;
+    });
+
+    return sortedArr;
+  }
+
+  function populateProductsGrid(products) {
+    // Implement this function to update the product grid based on the filtered/sorted products.
+  }
+
+  document.querySelector('.sort-asc').addEventListener('click', function () {
+    let sortedArr = sortPriceAsc(products);
+    populateProductsGrid(sortedArr);
+  });
+
+  document.querySelector('.sort-desc').addEventListener('click', function () {
+    let sortedArr = sortPriceDesc(products);
+    populateProductsGrid(sortedArr);
+  });
+
+  function applyFilters() {
+    const maxPrice = parseFloat(document.getElementById('max-price').value);
+    const searchTerm = document.getElementById('search-term').value.toLowerCase();
+
+    // Filter products based on max price and search term
+    const filteredProducts = products.filter(product => {
+      const meetsMaxPrice = isNaN(maxPrice) || product.price <= maxPrice;
+      const meetsSearchTerm = searchTerm === '' || product.name.toLowerCase().includes(searchTerm);
+      return meetsMaxPrice && meetsSearchTerm;
+    });
+
+    populateProductsGrid(filteredProducts);
+  }
+
+  // Add an event listener to the filter button
+  document.getElementById('filter-button').addEventListener('click', applyFilters);
+
+
+  </script>
+    
+  </body>
+</html>

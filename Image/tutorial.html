@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Populate Cards</title>
+  <style>
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        padding: 40px;
+      }
+  </style>
+  <style>
+    <style>
+      .card {
+        width: 300px;
+        height: 500px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.9);
+      }
+
+      .card__header {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .card__image {
+        width: 100%;
+        height: auto;
+        pointer-events: none;
+      }
+
+      .card__content {
+        padding: 16px;
+      }
+
+      .card__title {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 8px;
+        position: relative;
+      }
+
+      .card__title::after {
+        content: attr(title);
+        position: absolute;
+        width: 200px;
+        opacity: 0;
+      }
+
+      .card__title:hover::after {
+        opacity: 1;
+      }
+
+      .card__text {
+        font-size: 14px;
+        color: #130202;
+        margin-bottom: 16px;
+      }
+
+      .card__price {
+        font-size: 16px;
+        margin-top: 8px;
+        font-weight: bold;
+      }
+
+      .card__button {
+        text-decoration: none;
+        background-color: #29ad2d;
+        padding: 8px 16px;
+        transition: background-color 1s ease;
+      }
+
+      .card__button:hover {
+        background-color: rgb(19, 202, 28);
+      }
+
+      .card--dark {
+        background-color: #c71717;
+        box-shadow: 1px 4px 8px red;
+        color: #ffa9a9;
+      }
+
+      .card--dark .card__button {
+        background-color: #1e824c;
+      }
+      .card--dark .card__button:hover {
+        color: #1a6c3d;
+      }
+  </style>
+   <style>
+    #cards-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px, 1fr));
+      grid-gap: 20px; }
+
+      @media only screen and (max-width: 450px) {
+      body {
+        background-color: rgb(23, 121, 187);
+        width: 60%;
+      }
+      .card (
+      background-color: rgb(23, 121, 187);
+        width: 40%;
+        height: 40px;
+      )
+    }
+    
+  </style>
+</head>
+<body>
+
+<div id="cards-grid"></div>
+
+<script>
+  // Function to populate cards
+  function populateCards() {
+    // Select the #cards-grid element
+    var cardsGrid = document.querySelector('#cards-grid');
+
+    // Set the image path
+    var imagePath = 'Photo 1.jpg'; // Set the actual path to your image
+
+    // Loop to create 20 cards
+    for (var i = 1; i <= 20; i++) {
+      // Create a new card element
+      var card = document.createElement('div');
+      card.className = 'card';
+
+      // Create image element
+      var img = document.createElement('img');
+      img.src = imagePath;
+      img.alt = 'Card Image';
+      card.appendChild(img);
+
+      // Create content container
+      var contentDiv = document.createElement('div');
+      contentDiv.className = 'card-content';
+
+      // Create heading element
+      var heading = document.createElement('h2');
+      heading.title = 'photography ' + i;
+      heading.textContent = 'photography ' + i;
+      contentDiv.appendChild(heading);
+
+      // Create price paragraph
+      var price = document.createElement('p');
+      price.textContent = '$' + i + '.00'; // You can adjust the price logic
+      contentDiv.appendChild(price);
+
+      // Create description paragraph
+      var description = document.createElement('p');
+      description.textContent = 'Today Everything exists to end in a photograph.';
+      contentDiv.appendChild(description);
+
+      // Create "Add to Card" link
+      var addtocard = document.createElement('a');
+      addtocard.href = '#'; // Set the actual link
+      addtocard.textContent = 'Add To Card';
+      contentDiv.appendChild(addtocard);
+
+      // Append content container to the card
+      card.appendChild(contentDiv);
+
+      // Append the card to the #cards-grid
+      cardsGrid.appendChild(card);
+    }
+  }
+
+  // Call the populateCards function when the page is loaded
+  window.addEventListener('load', populateCards);
+</script>
+
+</body>
+</html>

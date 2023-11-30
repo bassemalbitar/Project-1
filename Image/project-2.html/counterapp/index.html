@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Counter App</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        body * {
+            margin: auto;
+            border: 1px solid rgb(116, 110, 110);
+        }
+        .counter {
+            padding: 30px;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .counter > * {
+            width: 100%;
+            padding: 10px 0px;
+            font-size: 16px; /* Changed the font size to make it more readable */
+        }
+        
+        .counter .buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .counter .buttons > * {
+            padding: 10px; /* Adjusted padding for better spacing */
+            background-color: rgb(196, 255, 255);
+            font-size: 20px;
+            cursor: pointer; /* Added cursor pointer for better user experience */
+        }
+        
+        .counter * {
+            text-align: center;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="counter">
+      <h1>Counter App</h1>
+      <div class="output">0</div>
+      <div class="buttons">
+        <div class="sub" >-</div>
+        <div class="add" >+</div>
+        <div class="add5" >add(5)</div>
+      </div>
+    </div>
+    <script>
+        const startingpoint = 0;
+        let currentoutput = startingpoint;
+        const output = document.querySelector('.output');
+        output.innerHTML = currentoutput;
+        updateUI();
+
+        function addOutput
+
+        // function add() {
+        //     currentoutput = currentoutput + 1;
+        //     updateUI()
+        // }
+
+        // function sub() {
+        //     currentoutput = currentoutput - 1;
+        //     output.innerHTML = currentoutput;
+        // }
+        // function add5() {
+        //     currentoutput = currentoutput + 5;
+        //     updateUI()
+        // }
+
+        document.querySelector('.add').addEventListener('click', add);
+        document.querySelector('.sub').addEventListener('click', sub);
+         document.querySelector('.add5').addEventListener('click', add5);
+
+        function updateUI (){
+            output.innerHTML = currentoutput;
+        }
+    </script>
+  </body>
+</html>

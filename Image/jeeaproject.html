@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeera Agency</title>
+</head>
+<style>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    padding: 20px 30px;
+    justify-content: space-between;
+    border: 1px solid red;
+}
+nav{
+    display: flex;
+    gap: 15px;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+}
+.home{
+    display: flex;
+    align-items: center;
+}
+.hero-wrapper{
+    min-width: 50%;
+}
+.hero-content h1{
+    font-size: 100px;
+}
+button {
+    background-color: black;
+    color: white;
+}
+main {
+    background-color: rgb(250, 250, 250), 215);
+    color: black;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+}
+.nav li{
+    font-size: 20px;
+}
+.section-features{
+    height: 70vh;
+}
+h1 {
+    text-align: center;
+    font-size: 48px;
+}
+#services h1{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 110px, 1100px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+                background-color: aquamarine;
+              }  }
+
+</style>
+<body>
+    <script>
+    @media screen and (max-width: 700px, 1630px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+                
+            }
+        </script>    
+    <header>
+        <div class="brand-logo-wrapper">
+            <div class="brand-logo">jera.</div>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Pricing</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Contact</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Search</a>
+        </nav>
+    </header>
+    <section class="home">
+        <div class="hero-wrapper"> 
+            <img src="images\homework-2.jpg" alt="hero" class="hero">
+        </div>
+        <div class="hero-content">
+            <h1>jeera agency is ready to take your project.</h1>
+            <button>Read More</button>
+        </div>
+    </section>
+
+    <main>
+    <section class="Services">
+       <h1>Our Services</h1>
+        </section>
+        <nav>
+        <ul>
+            <li><a href="creative designers">creative designers</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+            
+            
+    </main>
+
+    </section>
+
+    <section class="Features">
+       <h1>Our Features</h1>
+
+        <nav>
+        <ul>
+            <li><a href="Technical solutions">Technical Solutiond</a></li>
+            <li><a href="#">Unlimited Features</a></li>
+        </ul>
+        </section>
+
+    </section>
+  
+</body>
+</html>
