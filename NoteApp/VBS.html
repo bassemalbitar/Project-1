@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <title>Validate Before Submit</title>
+    <style>
+      body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 400px; /* Adjust as needed */
+  width: 100px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 150px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100px; /* Adjust as needed */
+  width: 150px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 150px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 5px;
+  margin-bottom: 5px;
+  width: 150px;
+}
+
+button {
+  margin-top: 10px;
+}
+
+      input {
+        border: 1px solid black;
+      }
+      button {
+        border: 1px solid rgb(0, 0, 0);
+        background-color: green;
+        color: beige;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" />
+      <p id="first-name-error" class="hidden text-red-500">Enter a first name 3 or more characters</p>
+
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" />
+      <p id="last-name-error" class="hidden text-red-500">Enter a first name 3 or more characters</p>
+
+      <label for="Email">Email</label>
+      <input type="text" id="Email" />
+      <p id="Email-error" class="hidden text-red-500">Enter a first name 3 or more characters</p>
+     
+      <label for="Mobile">Mobile</label>
+      <input type="Digits" id="Mobile" />
+      <p id="Mobile-error" class="hidden text-red-500">Enter a first name 3 or more characters</p>
+     
+      <label for="Adress">Adress</label>
+      <input type="Adress" id="Adress" />
+      <p id="Adress-error" class="hidden text-red-500">Enter a first name 3 or more characters</p>
+     
+      <button onclick="handleSubmit()" type="button">Submit Form</button>
+    </form>
+
+    <script>
+      function handleSubmit() {
+        let allInputsValid = true;
+        // step 1: validate all inputs
+        if (!validateFirstName()) {
+          allInputsValid = false;
+        }
+
+        // if(!validateLastName()){
+        //     allInputsValid=false
+        // }
+        // step 2: if all inputs are valid, submit
+        if (allInputsValid) {
+          submitToBackend();
+        }
+      }
+
+      function validateFirstName() {
+        let firstNameInputElement = document.querySelector('#first-name');
+        // if empty string, or false, or null...
+        if (!firstNameInputElement.value) {
+          document.querySelector('#first-name-error').classList.remove('hidden');
+          return false;
+        }
+
+        if (firstNameInputElement.value.length < 3) {
+          document.querySelector('#first-name-error').classList.remove('hidden');
+          return false;
+        }
+
+        document.querySelector('#first-name-error').classList.add('hidden');
+        return true;
+      }
+
+      function submitToBackend() {
+        // does nothing for now
+        console.log('Success');
+      }
+      function handleSubmit() {
+  let allInputsValid = true;
+
+  // Validate all inputs
+  if (!validateInput('first-name')) {
+    allInputsValid = false;
+  }
+
+  if (!validateInput('last-name')) {
+    allInputsValid = false;
+  }
+
+  if (!validateInput('Email', 'email')) {
+    allInputsValid = false;
+  }
+
+  if (!validateInput('Mobile', 'tel')) {
+    allInputsValid = false;
+  }
+
+  if (!validateInput('Address')) {
+    allInputsValid = false;
+  }
+
+  // If all inputs are valid, submit to the backend
+  if (allInputsValid) {
+    submitToBackend();
+  }
+}
+
+function validateInput(inputId, type = 'text') {
+  let inputElement = document.querySelector(`#${inputId}`);
+  let errorElement = document.querySelector(`#${inputId}-error`);
+
+  // Validate input based on type
+  if (type === 'text') {
+    if (!inputElement.value || inputElement.value.length < 3) {
+      errorElement.classList.remove('hidden');
+      return false;
+    }
+  } else if (type === 'email') {
+    // Add email validation logic here if needed
+  } else if (type === 'tel') {
+    // Add phone number validation logic here if needed
+  }
+
+  // If input is valid, hide the error message
+  errorElement.classList.add('hidden');
+  return true;
+}
+
+function submitToBackend() {
+  // Your submission logic here
+  console.log('Success');
+}
+
+    </script>
+  </body>
+</html>
